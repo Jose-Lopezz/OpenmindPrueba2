@@ -1,0 +1,107 @@
+@import '@angular/material/theming';
+
+// Define custom theme colors
+$custom-primary: mat-palette($mat-blue, 600);
+$custom-accent: mat-palette($mat-blue, A200);
+$custom-warn: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
+
+@include mat-core();
+@include mat-all-component-themes($custom-theme);
+
+html, body { 
+  height: 100%; 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+// Custom styles to match the original design
+.gradient-bg {
+  background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+.blue-theme {
+  .mat-card {
+    border: 1px solid #e3f2fd;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #2196f3;
+  }
+  
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #1976d2;
+  }
+}
+
+// Custom button styles
+.mat-raised-button.mat-primary {
+  background-color: #1976d2;
+  
+  &:hover {
+    background-color: #1565c0;
+  }
+}
+
+// Card hover effects
+.course-card {
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+}
+
+// Badge styles
+.level-badge {
+  &.beginner {
+    background-color: #e8f5e8;
+    color: #2e7d32;
+  }
+  
+  &.intermediate {
+    background-color: #fff3e0;
+    color: #f57c00;
+  }
+  
+  &.advanced {
+    background-color: #ffebee;
+    color: #d32f2f;
+  }
+}
+
+// Responsive grid
+.responsive-grid {
+  display: grid;
+  gap: 24px;
+  
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Utility classes
+.text-center { text-align: center; }
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-6 { margin-bottom: 24px; }
+.mb-8 { margin-bottom: 32px; }
+.mt-4 { margin-top: 16px; }
+.p-4 { padding: 16px; }
+.p-6 { padding: 24px; }
+.p-8 { padding: 32px; }
+
+.full-width { width: 100%; }
+.flex-1 { flex: 1; }
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.align-center { align-items: center; }
+.justify-center { justify-content: center; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
